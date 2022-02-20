@@ -22,3 +22,4 @@
  The most basic workflow starts with a manager creating a project. Then they add concerts and rehearsals to the project. After that, the manager selects singers to invite to the project. The singers receive a notification and can see the invitation with a timetable and project info under their "Offers" tab. From there they can respond to the invitation and offer information about their participation in each rehearsal/concert. After that, all concerts and rehearsal under the project will be added to the singers personal timetable and the information about singers participation will be visible alongside all the other singers in a general table visible to the managers.
 
 ### ERD Schema:
+![ERD](https://user-images.githubusercontent.com/49093021/154834877-d9a04fb4-4d15-43bf-93d0-4ad04ba4a3ae.PNG)
