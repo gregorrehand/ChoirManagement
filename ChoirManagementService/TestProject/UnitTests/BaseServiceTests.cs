@@ -368,9 +368,9 @@ namespace TestProject.UnitTests
 
             Assert.Single(sortedProject);
             Assert.NotNull(sortedProject.First());
-            Assert.Equal(bass.Id, sortedProject!.First()!.Concerts!.First().PersonConcert!.ToList()[2].AppUser!.VoiceGroup!.Id);
-            Assert.Equal(tenor.Id, sortedProject!.First()!.Concerts!.First().PersonConcert!.ToList()[1].AppUser!.VoiceGroup!.Id);
-            Assert.Equal(sopran.Id, sortedProject!.First()!.Concerts!.First().PersonConcert!.ToList()[0].AppUser!.VoiceGroup!.Id);
+            Assert.Equal(bass.Id, sortedProject!.First()!.Concerts!.First().PersonConcerts!.ToList()[2].AppUser!.VoiceGroup!.Id);
+            Assert.Equal(tenor.Id, sortedProject!.First()!.Concerts!.First().PersonConcerts!.ToList()[1].AppUser!.VoiceGroup!.Id);
+            Assert.Equal(sopran.Id, sortedProject!.First()!.Concerts!.First().PersonConcerts!.ToList()[0].AppUser!.VoiceGroup!.Id);
             
             Assert.Equal(bass.Id, sortedProject!.First()!.Rehearsals!.First().PersonRehearsals!.ToList()[2].AppUser!.VoiceGroup!.Id);
             Assert.Equal(tenor.Id, sortedProject!.First()!.Rehearsals!.First().PersonRehearsals!.ToList()[1].AppUser!.VoiceGroup!.Id);

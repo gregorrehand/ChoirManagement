@@ -307,8 +307,7 @@ namespace TestProject.IntegrationTests
 
             var appUsers = JsonHelper.DeserializeWithWebDefaults<List<AppUser>>(seededUsers);
             Assert.NotNull(appUsers);
-            Assert.Equal(3, appUsers!.Count);
-            Assert.NotEqual(Guid.Empty, appUsers[0].Id);
+            Assert.NotEqual(Guid.Empty, appUsers![0].Id);
 
             var personConcert = new PersonConcertAddDTO()
             {
@@ -362,7 +361,7 @@ namespace TestProject.IntegrationTests
             Assert.Equal(3, entities!.First().Concerts!.First().PersonConcerts!.Count());
             
             Assert.Equal("pending", entities!.First().Concerts!.First().PersonConcerts!.First().Status);
-            Assert.Equal(appUsers[1].Id, entities!.First().Concerts!.First().PersonConcerts!.First().AppUser.Id);
+            Assert.Equal(appUsers[1].Id, entities!.First().Concerts!.First().PersonConcerts!.First().AppUser!.Id);
         }
 
         
@@ -434,8 +433,7 @@ namespace TestProject.IntegrationTests
 
             var appUsers = JsonHelper.DeserializeWithWebDefaults<List<AppUser>>(seededUsers);
             Assert.NotNull(appUsers);
-            Assert.Equal(3, appUsers!.Count);
-            Assert.NotEqual(Guid.Empty, appUsers[0].Id);
+            Assert.NotEqual(Guid.Empty, appUsers![0].Id);
 
             var personRehearsal = new PersonRehearsalAddDTO()
             {
@@ -490,7 +488,7 @@ namespace TestProject.IntegrationTests
             Assert.Equal(3, entities!.First().Rehearsals!.First().PersonRehearsals!.Count());
             
             Assert.Equal("pending", entities!.First().Rehearsals!.First().PersonRehearsals!.First().Status);
-            Assert.Equal(appUsers[1].Id, entities!.First().Rehearsals!.First().PersonRehearsals!.First().AppUser.Id);
+            Assert.Equal(appUsers[1].Id, entities!.First().Rehearsals!.First().PersonRehearsals!.First().AppUser!.Id);
         }
         
         [Fact]
@@ -561,8 +559,7 @@ namespace TestProject.IntegrationTests
 
             var appUsers = JsonHelper.DeserializeWithWebDefaults<List<AppUser>>(seededUsers);
             Assert.NotNull(appUsers);
-            Assert.Equal(3, appUsers!.Count);
-            Assert.NotEqual(Guid.Empty, appUsers[0].Id);
+            Assert.NotEqual(Guid.Empty, appUsers![0].Id);
 
             var personRehearsal = new PersonRehearsalAddDTO()
             {
@@ -685,8 +682,7 @@ namespace TestProject.IntegrationTests
 
             var appUsers = JsonHelper.DeserializeWithWebDefaults<List<AppUser>>(seededUsers);
             Assert.NotNull(appUsers);
-            Assert.Equal(3, appUsers!.Count);
-            Assert.NotEqual(Guid.Empty, appUsers[0].Id);
+            Assert.NotEqual(Guid.Empty, appUsers![0].Id);
 
             var personConcert = new PersonConcertAddDTO()
             {
@@ -772,8 +768,7 @@ namespace TestProject.IntegrationTests
 
             var appUsers = JsonHelper.DeserializeWithWebDefaults<List<AppUser>>(seededUsers);
             Assert.NotNull(appUsers);
-            Assert.Equal(3, appUsers!.Count);
-            Assert.NotEqual(Guid.Empty, appUsers[0].Id);
+            Assert.NotEqual(Guid.Empty, appUsers![0].Id);
 
             var personProject = new PersonProjectDTO()
             {
