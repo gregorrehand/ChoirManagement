@@ -27,11 +27,11 @@ namespace BLL.App.Services
             {
                 foreach (var concert in project!.Concerts!)
                 {
-                    concert.PersonConcert = concert.PersonConcert!.OrderBy(pc => Array.IndexOf(Constants.Constants.VOICEGROUP_ORDER, pc.AppUser!.VoiceGroup!.Name)).ToList();
+                    concert.PersonConcerts = concert.PersonConcerts!.OrderBy(pc => Array.IndexOf(Constants.Constants.VOICEGROUP_ORDER, pc.AppUser!.VoiceGroup!.Name)).ToHashSet();
                 }
                 foreach (var rehearsal in project!.Rehearsals!)
                 {
-                    rehearsal.PersonRehearsals = rehearsal.PersonRehearsals!.OrderBy(pc => Array.IndexOf(Constants.Constants.VOICEGROUP_ORDER, pc.AppUser!.VoiceGroup!.Name)).ToList();
+                    rehearsal.PersonRehearsals = rehearsal.PersonRehearsals!.OrderBy(pc => Array.IndexOf(Constants.Constants.VOICEGROUP_ORDER, pc.AppUser!.VoiceGroup!.Name)).ToHashSet();
                 }
                 project.PersonProjects = project.PersonProjects!.OrderBy(pc => Array.IndexOf(Constants.Constants.VOICEGROUP_ORDER, pc.AppUser!.VoiceGroup!.Name)).ToList();
             }

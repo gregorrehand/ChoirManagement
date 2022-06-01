@@ -17,7 +17,7 @@ namespace DAL.App.EF.Mappers
             var concerts = new List<Concert>();
             foreach (var concert in domainProject.Concerts!)
             {
-                var personConcerts = new List<PersonConcert>();
+                var personConcerts = new HashSet<PersonConcert>();
                 foreach (var personConcert in concert.PersonConcerts!)
                 {
                     personConcerts.Add(new PersonConcert()
@@ -47,7 +47,7 @@ namespace DAL.App.EF.Mappers
                     Name = concert.Name,
                     Programme = concert.Programme,
                     Start = concert.Start,
-                    PersonConcert = personConcerts
+                    PersonConcerts = personConcerts
                 });
             }
             
@@ -55,7 +55,7 @@ namespace DAL.App.EF.Mappers
             var rehearsals = new List<Rehearsal>();
             foreach (var rehearsal in domainProject.Rehearsals!)
             {
-                var personRehearsals = new List<PersonRehearsal>();
+                var personRehearsals = new HashSet<PersonRehearsal>();
                 foreach (var personRehearsal in rehearsal.PersonRehearsals!)
                 {
                     personRehearsals.Add(new PersonRehearsal()

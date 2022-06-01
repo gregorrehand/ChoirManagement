@@ -14,7 +14,7 @@ namespace PublicApi.DTO.v1.Mappers
             foreach (var concert in bllProject.Concerts!)
             {
                 var personConcerts = new List<ProjectPersonConcertDTO>();
-                foreach (var personConcert in concert.PersonConcert!)
+                foreach (var personConcert in concert.PersonConcerts!)
                 {
                     personConcerts.Add(new ProjectPersonConcertDTO()
                     {

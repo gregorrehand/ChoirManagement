@@ -1,7 +1,13 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Contracts.DAL.App.Repositories;
+using DAL.App.DTO;
 using DAL.App.EF.Mappers;
 using DAL.Base.EF.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.App.EF.Repositories
 {
@@ -10,10 +16,25 @@ namespace DAL.App.EF.Repositories
         public PersonProjectRepository(AppDbContext dbContext, IMapper mapper) : base(dbContext, new PersonProjectMapper(mapper))
         {
         }
+        
+        public override async Task<IEnumerable<PersonProject>> GetAllAsync(Guid userId = default, bool noTracking = true)
+        {
+            var query = CreateQuery(userId, noTracking);
+            query = query.Include(pp => pp.Project)
+                .ThenInclude(p => p!.Rehearsals)
+                .ThenInclude(r => r.PersonRehearsals!.Where(pr => pr.AppUserId == userId))
+                .Include(pp => pp.Project)
+                .ThenInclude(p => p!.Concerts)
+                .ThenInclude(r => r.PersonConcerts!.Where(pr => pr.AppUserId == userId));
 
+            var domainEntities = await query.ToListAsync();
+            var result = domainEntities.Select(e => Mapper.Map(e)!);
+            return result; 
+        }
          
     }
 }
+
 
         // /// <summary>
         // /// Kombineerib kõik kasutajaga seotud proovid ja kontsertdid MyScheduleView jaoks

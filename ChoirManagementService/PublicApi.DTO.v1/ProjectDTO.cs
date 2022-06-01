@@ -4,34 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PublicApi.DTO.v1
 {
-    public class ProjectAddDTO
-    {
-        [MaxLength(128)] 
-        public string Name { get; set; } = default!;
-        [MaxLength(1024)] 
-        public string Programme { get; set; } = default!;
-        [MaxLength(4096)] 
-        public string? Info { get; set; }
-    }
-    public class ProjectDTO
-    {
-        public Guid Id { get; set; }
-
-        [MaxLength(128)] 
-        public string Name { get; set; } = default!;
-        [MaxLength(1024)] 
-        public string Programme { get; set; } = default!;
-        [MaxLength(4096)] 
-        public string? Info { get; set; }
-        
-        public ICollection<PersonProjectDTO>? PersonProjects { get; set; }
-        public ICollection<ProjectRehearsalDTO>? Rehearsals { get; set; }
-        public ICollection<ProjectConcertDTO>? Concerts { get; set; }
-        
-        //public ICollection<ProjectSheetMusic>? ProjectSheetMusics { get; set; } //TODO: Figure something out
-    }
-
-    public class PersonProjectDTO
+    public class PersonBaseDTO
     {
         public Guid Id { get; set; }
 
@@ -42,6 +15,34 @@ namespace PublicApi.DTO.v1
         public string? Status { get; set; }
         public string? Comment { get; set; }
         
+        // public Guid VoiceGroupId { get; set; } = default!; //TODO: separate voicegroup for each project
+        // public VoiceGroup? VoiceGroup { get; set; }
+        
+    }
+    public class ProjectAddDTO
+    {
+        [MaxLength(128)] 
+        public string Name { get; set; } = default!;
+        [MaxLength(1024)] 
+        public string Programme { get; set; } = default!;
+        [MaxLength(4096)] 
+        public string? Info { get; set; }
+    }
+    
+    
+    public class ProjectDTO: ProjectAddDTO
+    {
+        public Guid Id { get; set; }
+
+        public ICollection<PersonProjectDTO>? PersonProjects { get; set; }
+        public ICollection<ProjectRehearsalDTO>? Rehearsals { get; set; }
+        public ICollection<ProjectConcertDTO>? Concerts { get; set; }
+        
+        //public ICollection<ProjectSheetMusic>? ProjectSheetMusics { get; set; } //TODO: Figure something out
+    }
+
+    public class PersonProjectDTO: PersonBaseDTO
+    {
         public Guid ProjectId { get; set; }
 
         // public Guid VoiceGroupId { get; set; } = default!; //TODO: separate voicegroup for each project
@@ -69,17 +70,9 @@ namespace PublicApi.DTO.v1
 
     }
     
-    public class ProjectPersonConcertDTO
+    public class ProjectPersonConcertDTO: PersonBaseDTO
 
     {
-        public Guid Id { get; set; }
-
-        public string? Status { get; set; }
-        public string? Comment { get; set; }
-        
-        public Guid AppUserId { get; set; } = default!;
-        
-        public AppUser AppUser { get; set; } = default!;
     }
     
     public class ProjectRehearsalDTO
@@ -100,17 +93,9 @@ namespace PublicApi.DTO.v1
         public ICollection<ProjectPersonRehearsalDTO>? PersonRehearsals{ get; set; }
 
     }
-    public class ProjectPersonRehearsalDTO
+    public class ProjectPersonRehearsalDTO: PersonBaseDTO
 
     {
-        public Guid Id { get; set; }
-
-        public string? Status { get; set; }
-        public string? Comment { get; set; }
-        
-        public Guid AppUserId { get; set; } = default!;
-        
-        public AppUser AppUser { get; set; } = default!;
     }
 
     public class AppUser

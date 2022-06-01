@@ -23,7 +23,7 @@ namespace DAL.App.DTO
         public Guid ProjectId { get; set; } = default!;
         public Project? Project { get; set; }
         
-        public ICollection<PersonConcert>? PersonConcert { get; set; }
+        public HashSet<PersonConcert>? PersonConcerts { get; set; }
         public ICollection<ConcertSheetMusic>? ConcertSheetMusics { get; set; }
 
     }

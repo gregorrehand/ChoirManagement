@@ -46,7 +46,7 @@ namespace WebApp.ApiControllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PersonProjectDTO>>> GetPersonProjects()
         {
-            var dto = from personProject in await _bll.PersonProjects.GetAllAsync()
+            var dto = from personProject in await _bll.PersonProjects.GetAllAsync(User.GetUserId()!.Value)
                 select _mapper.Map<PersonProjectDTO>(personProject);
             return Ok(dto);
 

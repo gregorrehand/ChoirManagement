@@ -22,7 +22,7 @@ namespace BLL.App.DTO
         public Guid ProjectId { get; set; } = default!;
         public Project? Project { get; set; }
         
-        public ICollection<PersonRehearsal>? PersonRehearsals { get; set; }
+        public HashSet<PersonRehearsal>? PersonRehearsals { get; set; }
         public ICollection<RehearsalSheetMusic>? RehearsalSheetMusics { get; set; }
 
     }

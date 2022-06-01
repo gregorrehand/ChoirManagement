@@ -49,6 +49,7 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.props = Directory.Build.props
 	Dockerfile = Dockerfile
 	.dockerignore = .dockerignore
+	Readme.md = Readme.md
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8B71BF6E-B09C-4394-990B-5294C98B1521}"

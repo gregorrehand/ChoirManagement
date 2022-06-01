@@ -6,7 +6,6 @@ using Domain.Base;
 namespace Domain.App
 {
     public class PersonRehearsal  : DomainEntityIdUser<AppUser>
-
     {
 
         [MaxLength(256)]

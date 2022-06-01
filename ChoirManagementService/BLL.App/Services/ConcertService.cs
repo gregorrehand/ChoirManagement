@@ -19,7 +19,7 @@ namespace BLL.App.Services
 
         public BLLAppDTO.Concert UpdateWithNotification(BLLAppDTO.Concert concert)
         {
-            foreach (var personConcert in concert.PersonConcert!)
+            foreach (var personConcert in concert.PersonConcerts!)
             {
                 ServiceUow.Notifications.Add(new DAL.App.DTO.Notification()
                 {

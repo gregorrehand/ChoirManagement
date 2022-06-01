@@ -28,7 +28,6 @@ namespace WebApp.ApiControllers
         private readonly IAppBLL _bll;
         private readonly IMapper _mapper;
 
-        private PersonRehearsalMapper _personRehearsalMapper;
         /// <summary>
         /// PersonRehearsalsController
         /// </summary>
@@ -38,9 +37,6 @@ namespace WebApp.ApiControllers
         {
             _bll = bll;
             _mapper = mapper;
-
-            _personRehearsalMapper = new PersonRehearsalMapper(_mapper);
-            
         }
 
         // GET: api/PersonRehearsals
